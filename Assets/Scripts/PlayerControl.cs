@@ -62,8 +62,9 @@ public class PlayerControl : MonoBehaviour {
 			GetComponent<Rigidbody>().freezeRotation = true;
 		originalRotation = transform.localRotation;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+		// todo: disable cursor hide and lock until we bring back mouse gaze support.
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
         mouseControl = false;
 		atMainMenu = true;
 		atGameOverMenu = false;
@@ -109,8 +110,8 @@ public class PlayerControl : MonoBehaviour {
 
 	public void SelectedVRControl() {
 		//hide the mouse
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
+//		Cursor.lockState = CursorLockMode.Locked;
+//		Cursor.visible = false;
 
 		//control the camera movement in game with VR
 		mouseControl = false;
@@ -235,19 +236,19 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		//control whether we're playing or trying to get our mouse back
-		if (Input.GetKeyDown ("escape")) 
-		{
-			if (controllingGame && mouseControl) {
-				Cursor.visible = true;
-				Cursor.lockState = CursorLockMode.None;
-				controllingGame = false;
-			} 
-			else if(!controllingGame && mouseControl) {
-				Cursor.lockState = CursorLockMode.Locked;
-				Cursor.visible = false;
-				controllingGame = true;
-			}
-		}
+//		if (Input.GetKeyDown ("escape")) 
+//		{
+//			if (controllingGame && mouseControl) {
+//				Cursor.visible = true;
+//				Cursor.lockState = CursorLockMode.None;
+//				controllingGame = false;
+//			} 
+//			else if(!controllingGame && mouseControl) {
+//				Cursor.lockState = CursorLockMode.Locked;
+//				Cursor.visible = false;
+//				controllingGame = true;
+//			}
+//		}
 
 		//raycast from center of camera to figure out which monitor we're looking at
 		if (controllingGame && mainCamera.GetComponent<GameControl>().GetStillAlive() && !webVRCamera.handControllers) 
