@@ -100,15 +100,15 @@ public class WebVRCamera : MonoBehaviour
 	// received sit and stand room transform from WebVR browser
 	public void HMDSittingToStandingTransform (string sitStandStr) {
 		float[] array = sitStandStr.Split(',').Select(float.Parse).ToArray();
-		sitStand = numbersToMatrix (array);
+		Matrix4x4 mat = numbersToMatrix (array);
 
-		Vector3 ssTranslate = sitStand.GetColumn(3);
+		Vector3 ssTranslate = mat.GetColumn(3);
 		//		ssTranslate.x *= -1;
 		ssTranslate.z *= -1;
 
 		Quaternion ssRotation = Quaternion.LookRotation (
-			sitStand.GetColumn (2),
-			sitStand.GetColumn (1)
+			mat.GetColumn (2),
+			mat.GetColumn (1)
 		);
 
 		Quaternion ssR = new Quaternion(-ssRotation.x , ssRotation.y, ssRotation.z , -ssRotation.w );
@@ -121,6 +121,8 @@ public class WebVRCamera : MonoBehaviour
 		Gamepads list = Gamepads.CreateFromJSON(jsonString);
 
 		handControllers = list.controllers.Length > 0 ? true : false;
+
+		buttonPressed = false;
 
 		foreach (Controller control in list.controllers) {
 			float[] pos = control.position.Split(',').Select(float.Parse).ToArray();
