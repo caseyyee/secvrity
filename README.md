@@ -8,4 +8,4 @@
 
 Works with HTC VIVE and Oculus Rift using a WebVR enabled browser.
 
-See [unity-webvr-export](unity-webvr-export) for more information about making your own games using the Unity WebVR assets.
+See [unity-webvr-export](https://github.com/caseyyee/unity-webvr-export) for more information about making your own games using the Unity WebVR assets.
