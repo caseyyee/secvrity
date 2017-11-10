@@ -46,6 +46,9 @@ public class WebVRCamera : MonoBehaviour
 	// delta time for latency checker.
 	float deltaTime = 0.0f;
 
+	// show framerate UI
+	bool showPerf = false;
+
 	[System.Serializable]
 	public class Gamepads
 	{
@@ -154,8 +157,11 @@ public class WebVRCamera : MonoBehaviour
 
 	// received time tester from WebVR browser
 	public void TestTime() {
-		Debug.Log ("Time tester received in Unity");
 		TestTimeReturn ();
+	}
+
+	public void TogglePerf() {
+		showPerf = showPerf == false ? true : false;
 	}
 
 	private void toggleMode() {
@@ -243,6 +249,9 @@ public class WebVRCamera : MonoBehaviour
 
 	void OnGUI()
 	{
+		if (!showPerf)
+			return;
+		
 		int w = Screen.width, h = Screen.height;
 
 		GUIStyle style = new GUIStyle();
