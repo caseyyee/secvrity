@@ -2,7 +2,7 @@
 
 ### [Play Now!](https://caseyyee.github.io/secvrity/)
 
-![Game preview](https://raw.githubusercontent.com/caseyyee/secvrity/video/preview.gif)
+![Game preview](https://raw.githubusercontent.com/caseyyee/secvrity/master/video/preview.gif)
 
 A Unity VR game built with WebVR support!
 See [unity-webvr-export](unity-webvr-export) repo for more information.
